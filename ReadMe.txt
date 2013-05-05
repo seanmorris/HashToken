@@ -6,7 +6,7 @@ The class uses SHA256 hashing along with a secret key to keep things secure. You
 should change the KEY constant before using the code.
 
 The tokens are plaintext, and can be passed to the user for example when a form
-page is generated. When the form is posted, the server may check is the token is
+page is generated. When the form is posted, the server may check if the token is
 still valid, ensuring the form was submitted in the allotted timeframe.
 
 This all happens without any storage of tokens on the server side whatsoever.
