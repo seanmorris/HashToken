@@ -29,7 +29,14 @@ else
 //five minute timeframe.
 
 $anonToken	= HashToken::getToken(NULL, 60*5);
-$isValid	= HashToken::checkToken($anonToken);
+if(HashToken::checkToken($anonToken, $username))
+{
+	echo "Token valid!\n";
+}
+else
+{
+	echo "Token is not valid.\n";
+}
 
 //Tokens may also have an "emerge" time, if this
 //parameter is set, the token will be considered
@@ -40,9 +47,9 @@ $isValid	= HashToken::checkToken($anonToken);
 //This token will be invalid for 10 minutes before
 //becoming valid. It will remain valid for 5 minutes
 //after that
-$anonToken	= HashToken::getToken(NULL, 60*5, 60*10);
+$anonToken2	= HashToken::getToken(NULL, 60*5, 60*10);
 
-if(HashToken::checkToken($anonToken, $username))
+if(HashToken::checkToken($anonToken2, $username))
 {
 	echo "Token valid!\n";
 }
