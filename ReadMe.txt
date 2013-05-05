@@ -18,14 +18,14 @@ GetToken returns a string representing the token.
 
 	UserKey
 		- Secret key for this particular token.
-		- Necesary to determine token validity.
+		- Necessary to determine token validity.
 		- May be NULL (must then also be NULL on CheckToken)
 
 	ExpireTime
 		- Validity time of token in seconds
 		- If Emerge Time is set, this begins AFTER emerge time
 
-	EmergeTime - Time in seconds to wait before considereing token valid
+	EmergeTime - Time in seconds to wait before considering token valid
 
 CheckToken takes 2 parameters, Token and UserKey
 CheckToken returns a boolean indicating whether or not the token is currently valid.
