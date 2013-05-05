@@ -1,0 +1,24 @@
+HashToken is a PHP class for generating expiring tokens. The class does not
+rely on the database, rather it uses simple mathematics and the current time on
+the local server to work out whether a token has expired or not.
+
+The class uses SHA256 hashing along with a secret key to keep things secure. You
+should change the KEY constant before using the code.
+
+The tokens are plaintext, and can be passed to the user for example when a form
+page is generated. When the form is posted, the server may check is the token is
+still valid, ensuring the form was submitted in the allotted timeframe.
+
+This all happens without any storage of tokens on the server side whatsoever.
+
+The class has two functions, GetToken and CheckToken:
+
+GetToken takes 2 or 3 parameters, they are UserKey, ExpireTime, and EmergeTime.
+
+	UserKey - Secret key for this particular token.
+			- Necesary to determine token validity.
+
+	ExpireTime - Validity time of token in seconds
+			- If Emerge Time is set, this begins AFTER emerge time
+
+	EmergeTime - Time in seconds to wait before considereing token valid
